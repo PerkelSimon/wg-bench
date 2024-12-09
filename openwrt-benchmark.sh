@@ -18,7 +18,7 @@ if [ "$NAME" != "OpenWrt" ]; then
     exit 1
 fi
 
-if [ $(ls /tmp/opkg-lists/ | wc -l) -eq "0" ]; then
+if [ $(ls /tmp/apk-lists/ | wc -l) -eq "0" ]; then
     apk update
 fi
 
