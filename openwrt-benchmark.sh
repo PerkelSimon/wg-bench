@@ -19,44 +19,44 @@ if [ "$NAME" != "OpenWrt" ]; then
 fi
 
 if [ $(ls /tmp/opkg-lists/ | wc -l) -eq "0" ]; then
-    opkg update
+    apk update
 fi
 
 printf "\033[32;1m\nPackages:\033[0m\n"
 
-if opkg list-installed | grep -q wireguard-tools; then
+if apk list --installed | grep -q wireguard-tools; then
     echo "WireGuard already installed"
 else
     echo "Installed wg..."
-    opkg install wireguard-tools
+    apk add wireguard-tools
 fi
 
-if opkg list-installed | grep -q iperf3; then
+if apk list --installed | grep -q iperf3; then
     echo "Iperf3 already installed"
 else
     echo "Installed iperf3..."
-    opkg install iperf3
+    apk add iperf3
 fi
 
-if opkg list-installed | grep -q ip-full; then
+if apk list --installed | grep -q ip-full; then
     echo "ip-full already installed"
 else
     echo "Installed ip-full..."
-    opkg install ip-full
+    apk add ip-full
 fi
 
-if opkg list-installed | grep -q kmod-veth; then
+if apk list --installed | grep -q kmod-veth; then
     echo "kmod-veth already installed"
 else
     echo "Installed kmod-veth..."
-    opkg install kmod-veth
+    apk add kmod-veth
 fi
 
-if opkg list-installed | grep -q psmisc; then
+if apk list --installed | grep -q psmisc; then
     echo "psmisc already installed"
 else
     echo "Installed psmisc..."
-    opkg install psmisc
+    apk add psmisc
 fi
 
 printf "\033[32;1m\nRouter details:\033[0m\n"
